@@ -18,9 +18,17 @@ const Register = () => {
         userpass: password
       });
 
-      console.log("Success!", res.data);
+      if(res.status===200){
+        console.log("Success!", res.data);
       alert("Registration Successful!");
       navigate('/login');
+    }else if(res.status===400){
+        console.log("Registration failed!");
+        alert("Wrong inputs, please try again");
+    }else{
+        console.log ("Login Failed");
+        alert("Please Try Again");
+    }
       
     } catch (error) {
       console.error("Failed:", error);

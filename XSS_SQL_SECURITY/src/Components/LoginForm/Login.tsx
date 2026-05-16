@@ -18,7 +18,11 @@ const Login = () => {
       if(res.status === 200){
         console.log ("Login Success!", res.data);
         alert("Welcome back");
-        navigate('/');
+        navigate('/Home');
+      }else if(res.status===400){
+        console.log ("Login failed!");
+        alert("Wrong inputs, please try again");
+
       }else{
         console.log ("Login Failed");
         alert("Please Try Again");

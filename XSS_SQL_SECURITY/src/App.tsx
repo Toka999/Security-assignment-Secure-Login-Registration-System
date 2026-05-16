@@ -4,6 +4,7 @@ import {BrowserRouter, Routes,Route } from 'react-router-dom'
 import Layout from './Components/Layout/Layout'
 import Register from './Components/RegisterForm/Register'
 import Home from './Components/Homepage/Home'
+import Def from './Components/Def/Def'
 import './App.css'
 
 function App() {
@@ -14,7 +15,8 @@ element:React.ReactNode
 }
 
 const paths:Routings[]=[
-    {path:"/",element:<Home></Home>},
+    {path:"/",element:<Def></Def>},
+    {path:"/Home",element:<Home></Home>},
     {path:"/register",element:<Register/>},
     {path:"/Login",element:<Login></Login>},
   ];
