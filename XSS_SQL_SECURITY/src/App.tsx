@@ -6,6 +6,7 @@ import Register from './Components/RegisterForm/Register'
 import Home from './Components/Homepage/Home'
 import Def from './Components/Def/Def'
 import './App.css'
+import ProductCard from './Components/ProductCard/ProductCard.tsx'
 
 function App() {
 
@@ -19,11 +20,13 @@ const paths:Routings[]=[
     {path:"/Home",element:<Home></Home>},
     {path:"/register",element:<Register/>},
     {path:"/Login",element:<Login></Login>},
+    {path:"/Product",element:<ProductCard/>}
   ];
   
 
   return (
     <>
+    
      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout></Layout>}>

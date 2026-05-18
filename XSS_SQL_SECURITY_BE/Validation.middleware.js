@@ -1,4 +1,5 @@
 const Joi=require("joi");
+const bcrypt = require("bcrypt");
 const users=Joi.object({
     username:Joi.string().required().pattern(/^[a-zA-z0-9]/).messages({
         "string.pattern.base": "Username can only contain letters, numbers, and spaces. No symbols allowed!",
@@ -15,9 +16,13 @@ const users=Joi.object({
         
 });
 
-const validateRegister=(req,res,next)=>{
+const validateRegister=async (req,res,next)=>{
     const {value, error}=users.validate(req.body,{stripUnknown:true});
     if(error){return res.status(400).json({Message:error.details[0].message})}
+    const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(value.userpass, saltRounds);
+        value.userpass = hashedPassword;
+
     req.body=value;
     next();
 }
